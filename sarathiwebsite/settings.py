@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-%hb3fatd5z@+ip#!g6%hrrjeejgzicfg%h)##s@1mu-p(b4ypk
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', 'www.sarathijansewafoundation.com', 'sarathijansewafoundation.com']
+ALLOWED_HOSTS = ['127.0.0.1', 'www.sarathijansewafoundation.com', 'sarathijansewafoundation.com', 'localhost']
 
 
 # Application definition
@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'base',
 ]
 
 MIDDLEWARE = [
@@ -54,7 +55,7 @@ ROOT_URLCONF = 'sarathiwebsite.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
