@@ -1,0 +1,31 @@
+{% extends 'base/layout.html' %}
+{% load static %}    
+ 
+ {% block body%}
+    {% block header%}
+        {% include 'base/header.html' %}
+    {% endblock %}
+
+    {% block nav %}
+        {% include 'base/nav.html' %}
+    {% endblock %}
+
+    {% block main %}
+    <main>
+        {% include 'main/hero-section.html' %}
+        {% include 'main/feature.html' %}
+        {% include 'main/story-mission.html' %}
+        {% include 'main/founder.html' %}
+        {% include 'main/cta-donation.html' %}
+        {% include 'main/causes.html' %}
+        {% include 'main/volunteer.html' %}
+        {% include 'main/news-section.html' %}
+        {% include 'main/testimonial.html' %}
+        {% include 'main/contact.html' %}
+    </main>
+    {% endblock %}
+    
+    {% block footer %}
+        {% include 'base/footer.html' %}
+    {% endblock %}
+{% endblock %}
