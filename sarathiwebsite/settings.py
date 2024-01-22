@@ -24,7 +24,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-%hb3fatd5z@+ip#!g6%hrrjeejgzicfg%h)##s@1mu-p(b4ypk'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
+# Only for production push
+# DEBUG = False
 
 ALLOWED_HOSTS = ['127.0.0.1', 'www.sarathijansewafoundation.com', 'sarathijansewafoundation.com', 'localhost']
 
@@ -39,6 +41,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'base',
+    'ckeditor',
+    'ckeditor_uploader',
 ]
 
 MIDDLEWARE = [
@@ -76,18 +80,18 @@ WSGI_APPLICATION = 'sarathiwebsite.wsgi.application'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
 DATABASES = {
-    # 'default': {
-    #     'ENGINE': 'django.db.backends.sqlite3',
-    #     'NAME': BASE_DIR / 'db.sqlite3',
-    # },
-    "default": {
-        "ENGINE": "django.db.backends.mysql",
-        "NAME": os.environ.get('DB_NAME'),
-        "USER": os.environ.get('DB_USER'),
-        "PASSWORD": os.environ.get('DB_PASSWORD'),
-        "HOST": "localhost",
-        "PORT": "3306",
-    }
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    },
+    # "default": {
+    #     "ENGINE": "django.db.backends.mysql",
+    #     "NAME": os.environ.get('DB_NAME'),
+    #     "USER": os.environ.get('DB_USER'),
+    #     "PASSWORD": os.environ.get('DB_PASSWORD'),
+    #     "HOST": "localhost",
+    #     "PORT": "3306",
+    # }
 }
 
 
@@ -139,3 +143,6 @@ STATICFILES_DIRS =[
     BASE_DIR, 'static',
     # BASE_DIR, 'staticfiles',
 ]
+
+CKEDITOR_UPLOAD_PATH = "uploads/"
+CKEDITOR_ALLOW_NONIMAGE_FILES = False

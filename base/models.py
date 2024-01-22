@@ -1,4 +1,8 @@
 from django.db import models
+import os
+from ckeditor.fields import RichTextField
+from django.contrib.auth.models import User
+
 
 # Create your models here.
 
@@ -35,3 +39,19 @@ class Slide(models.Model):
         verbose_name_plural='slides'
     def __str__(self):
         return self.slide_heading
+    
+def upload_to(instance, filename):
+    folder_name=f"post_{instance.id}"
+    return os.path.join('blog_images', folder_name, filename)
+
+
+class Blog(models.Model):
+    blog_title=models.CharField(max_length=200)
+    blog_image=models.ImageField(upload_to=upload_to)
+    content_with_images = RichTextField()
+    categories = models.ManyToManyField(Category)
+    created_at = models.DateTimeField(auto_now_add=True)
+    created_by=models.ForeignKey(User, on_delete=models.CASCADE, limit_choices_to={'is_staff': True})
+
+    def __str__(self):
+        return self.blog_title
