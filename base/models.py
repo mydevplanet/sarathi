@@ -55,3 +55,11 @@ class Blog(models.Model):
 
     def __str__(self):
         return self.blog_title
+
+class Testimonial(models.Model):
+    testimonial_message=models.TextField()
+    testimonial_title=models.CharField(max_length=100)
+    testimonial_image=models.ImageField(upload_to='testimonial/')
+
+    def __str__(self):
+        return self.testimonial_title

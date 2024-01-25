@@ -9,15 +9,18 @@
                                 <div id="testimonial-carousel" class="carousel carousel-fade slide" data-bs-ride="carousel">
 
                                     <div class="carousel-inner">
+                                    {% for testimonial in testimonials %}
                                         <div class="carousel-item active">
                                            <div class="carousel-caption">
-                                                <h4 class="carousel-title">Lorem Ipsum dolor sit amet, consectetur adipsicing kengan omeg kohm tokito charity theme</h4>
+                                                <h4 class="carousel-title">
+                                                    {{testimonial.testimonial_message}}
+                                                </h4>
 
-                                                <small class="carousel-name"><span class="carousel-name-title">Maria</span>, Boss</small>
+                                                <small class="carousel-name"><span class="carousel-name-title">{{testimonial.testimonial_title}}</span>, Farmer</small>
                                            </div>
                                         </div>
-
-                                        <div class="carousel-item">
+                                    
+                                        {% comment %} <div class="carousel-item">
                                             <div class="carousel-caption">
                                                 <h4 class="carousel-title">Sed leo nisl, posuere at molestie ac, suscipit auctor mauris quis metus tempor orci</h4>
 
@@ -39,14 +42,14 @@
 
                                                 <small class="carousel-name"><span class="carousel-name-title">Bob</span>, Entreprenuer</small>
                                            </div>
-                                        </div>
+                                        </div> {% endcomment %}
 
                                           <ol class="carousel-indicators">
                                                <li data-bs-target="#testimonial-carousel" data-bs-slide-to="0" class="active">
-                                                    <img src="{% static 'images/avatar/portrait-beautiful-young-woman-standing-grey-wall.jpg' %}" class="img-fluid rounded-circle avatar-image" alt="avatar">
+                                                    <img src="{{testimonial.testimonial_image.url}}" class="img-fluid rounded-circle avatar-image" alt="avatar">
                                                </li>
 
-                                               <li data-bs-target="#testimonial-carousel" data-bs-slide-to="1" class="">
+                                               {% comment %} <li data-bs-target="#testimonial-carousel" data-bs-slide-to="1" class="">
                                                     <img src="{% static 'images/avatar/portrait-young-redhead-bearded-male.jpg' %}" class="img-fluid rounded-circle avatar-image" alt="avatar">
                                                </li>
 
@@ -56,9 +59,9 @@
 
                                                <li data-bs-target="#testimonial-carousel" data-bs-slide-to="3" class="">
                                                     <img src="{% static 'images/avatar/studio-portrait-emotional-happy-funny.jpg' %}" class="img-fluid rounded-circle avatar-image" alt="avatar">
-                                               </li>
+                                               </li> {% endcomment %}
                                           </ol>
-
+                                        {% endfor %}
                                  </div>
                             </div>
                         </div>
